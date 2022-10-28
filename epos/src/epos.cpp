@@ -68,27 +68,32 @@ Epos::Epos() : Node("epos") {
   }
 
   // motors
-  this->declare_parameter("motor_id", std::vector<int64_t>{{0}});
+  this->declare_parameter("motor_id", std::vector<int64_t>{{}});
   this->declare_parameter("motor_id_on_sub", std::vector<int64_t>{{}});
 
   const auto id_array = this->get_parameter("motor_id").as_integer_array();
   for (const auto& motor_id : id_array) {
+    RCLCPP_INFO_STREAM(logger, "id_array" << motor_id);
     Motor motor;
     motor.key_handle = device.key_handle;
+    motor.id = motor_id;
     motors[motor_id] = motor;
   }
 
   const auto id_array_sub =
       this->get_parameter("motor_id_on_sub").as_integer_array();
   for (const auto& motor_id : id_array_sub) {
+    RCLCPP_INFO_STREAM(logger, "id_array_on_sub" << motor_id);
     Motor motor;
-    motor.key_handle = device.key_handle;
+    motor.key_handle = sub_device.key_handle;
+    motor.id = motor_id;
     motors[motor_id] = motor;
   }
 
   this->declare_parameter("auto_enable", true);
   const bool auto_enable = this->get_parameter("auto_enable").as_bool();
   for (auto& [id, motor] : motors) {
+    RCLCPP_INFO_STREAM(logger, "ids" << id);
     uint8_t dimension;
     char notation;
     VCS_GetVelocityUnits(motor.key_handle, id, &dimension, &notation,

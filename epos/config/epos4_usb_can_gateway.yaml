@@ -12,5 +12,5 @@ epos:
     auto_enable: true
     dataout_freq: 10
 
-    motor_id: [0, 1]
-    motor_id_on_sub: [2, 3]
+    motor_id: [1]
+    motor_id_on_sub: [2]
