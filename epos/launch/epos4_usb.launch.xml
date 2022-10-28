@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="epos" exec="epos" output="screen">
+    <param from="$(find-pkg-share epos)/config/epos4_usb.yaml"/>
+  </node>
+</launch>

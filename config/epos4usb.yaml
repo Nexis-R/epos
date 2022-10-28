@@ -1,6 +1,0 @@
-epos:
-  ros__parameters:
-    device_name: "EPOS4"
-    protocol: "MAXON SERIAL V2"
-    interface: "USB"
-    portname: "USB0"
