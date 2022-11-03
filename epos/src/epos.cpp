@@ -73,7 +73,6 @@ Epos::Epos() : Node("epos") {
 
   const auto id_array = this->get_parameter("motor_id").as_integer_array();
   for (const auto& motor_id : id_array) {
-    RCLCPP_INFO_STREAM(logger, "id_array" << motor_id);
     Motor motor;
     motor.key_handle = device.key_handle;
     motor.id = motor_id;
@@ -83,7 +82,6 @@ Epos::Epos() : Node("epos") {
   const auto id_array_sub =
       this->get_parameter("motor_id_on_sub").as_integer_array();
   for (const auto& motor_id : id_array_sub) {
-    RCLCPP_INFO_STREAM(logger, "id_array_on_sub" << motor_id);
     Motor motor;
     motor.key_handle = sub_device.key_handle;
     motor.id = motor_id;
