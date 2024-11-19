@@ -16,7 +16,7 @@ rosdep update
 cd ws/src
 
 git clone https://github.com/Nexis-R/epos
-./epos/install-scripts/install-epos-command-library
+. epos/install-scripts/install-epos-command-library
 rosdep install -r -y -i --from-paths .
 ```
 
