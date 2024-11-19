@@ -13,10 +13,11 @@ epos用ROS2パッケージ<br>
 ```bash
 source /opt/ros/humble/setup.bash
 rosdep update
-cd ws/src
+cd ~/ws/src
 
 git clone https://github.com/Nexis-R/epos
 . epos/install-scripts/install-epos-command-library
+cd ~/ws/src/
 rosdep install -r -y -i --from-paths .
 ```
 
